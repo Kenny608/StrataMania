@@ -15,6 +15,11 @@ struct ContentView: View {
                     Image(systemName: "1.circle")
                     Text("Home")
                 }
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Settings")
+                }
         }
         .padding()
     }
