@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "eye.trianglebadge.exclamationmark")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Welcome to Input Warrior!")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "1.circle")
+                    Text("Home")
+                }
         }
         .padding()
     }

@@ -11,6 +11,7 @@
 		ED1677442BBF8652002B2F12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1677432BBF8652002B2F12 /* ContentView.swift */; };
 		ED1677462BBF8653002B2F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1677452BBF8653002B2F12 /* Assets.xcassets */; };
 		ED16774A2BBF8653002B2F12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1677492BBF8653002B2F12 /* Preview Assets.xcassets */; };
+		EDC0E85F2BBF95900095D297 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0E85E2BBF95900095D297 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		ED1677452BBF8653002B2F12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED1677472BBF8653002B2F12 /* input_Warrior.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = input_Warrior.entitlements; sourceTree = "<group>"; };
 		ED1677492BBF8653002B2F12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EDC0E85E2BBF95900095D297 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				ED1677452BBF8653002B2F12 /* Assets.xcassets */,
 				ED1677472BBF8653002B2F12 /* input_Warrior.entitlements */,
 				ED1677482BBF8653002B2F12 /* Preview Content */,
+				EDC0E85E2BBF95900095D297 /* HomeView.swift */,
 			);
 			path = input_Warrior;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC0E85F2BBF95900095D297 /* HomeView.swift in Sources */,
 				ED1677442BBF8652002B2F12 /* ContentView.swift in Sources */,
 				ED1677422BBF8652002B2F12 /* input_WarriorApp.swift in Sources */,
 			);
