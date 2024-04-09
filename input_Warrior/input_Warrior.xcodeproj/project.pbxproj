@@ -13,6 +13,8 @@
 		ED16774A2BBF8653002B2F12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1677492BBF8653002B2F12 /* Preview Assets.xcassets */; };
 		EDC0E85F2BBF95900095D297 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0E85E2BBF95900095D297 /* HomeView.swift */; };
 		EDC0E8632BC5CC710095D297 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0E8622BC5CC710095D297 /* SettingsView.swift */; };
+		EDC0E8652BC5CF280095D297 /* StratagemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0E8642BC5CF280095D297 /* StratagemView.swift */; };
+		EDC0E8672BC5D2300095D297 /* InputWarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0E8662BC5D2300095D297 /* InputWarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		ED1677492BBF8653002B2F12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EDC0E85E2BBF95900095D297 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EDC0E8622BC5CC710095D297 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EDC0E8642BC5CF280095D297 /* StratagemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratagemView.swift; sourceTree = "<group>"; };
+		EDC0E8662BC5D2300095D297 /* InputWarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				ED1677482BBF8653002B2F12 /* Preview Content */,
 				EDC0E85E2BBF95900095D297 /* HomeView.swift */,
 				EDC0E8622BC5CC710095D297 /* SettingsView.swift */,
+				EDC0E8642BC5CF280095D297 /* StratagemView.swift */,
+				EDC0E8662BC5D2300095D297 /* InputWarView.swift */,
 			);
 			path = input_Warrior;
 			sourceTree = "<group>";
@@ -146,8 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC0E85F2BBF95900095D297 /* HomeView.swift in Sources */,
+				EDC0E8652BC5CF280095D297 /* StratagemView.swift in Sources */,
 				EDC0E8632BC5CC710095D297 /* SettingsView.swift in Sources */,
 				ED1677442BBF8652002B2F12 /* ContentView.swift in Sources */,
+				EDC0E8672BC5D2300095D297 /* InputWarView.swift in Sources */,
 				ED1677422BBF8652002B2F12 /* input_WarriorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

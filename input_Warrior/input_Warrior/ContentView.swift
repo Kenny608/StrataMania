@@ -15,9 +15,19 @@ struct ContentView: View {
                     Image(systemName: "1.circle")
                     Text("Home")
                 }
-            SettingsView()
+            StratagemView()
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Strataview")
+                }
+            InputWarView()
                 .tabItem {
                     Image(systemName: "3.circle")
+                    Text("InputWar")
+                }
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "4.circle")
                     Text("Settings")
                 }
         }
