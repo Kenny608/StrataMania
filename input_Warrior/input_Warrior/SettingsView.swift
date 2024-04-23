@@ -13,10 +13,10 @@ struct SettingsView: View {
     var body: some View {
         VStack{
             Toggle("Dark Mode", isOn: $isDarkMode)
-                .padding()
+                .padding(.bottom)
+            Spacer()
         }
-        .padding()
-    }
+        .padding(40)    }
 }
 
 //#Preview {
