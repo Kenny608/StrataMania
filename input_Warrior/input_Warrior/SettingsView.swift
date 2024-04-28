@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct SettingsView: View {
+    let stratagems = stratagemList
     var body: some View {
-        Text("Setting Page")
+        NavigationView {
+            List {
+                ForEach(stratagems, id: \.self) { stratagems in
+                    NavigationLink(destination: Text(stratagems)){
+                        Image(systemName: "arrowkeys.fill")
+                        Text(stratagems)
+                    }.padding()
+                }
+                .navigationTitle("Stratagems")
+            }
+        }
     }
 }
 
