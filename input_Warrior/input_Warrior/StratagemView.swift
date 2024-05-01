@@ -1,29 +1,41 @@
-//
-//  SettingsView.swift
-//  input_Warrior
-//
-//  Created by Kenny Luchau on 4/9/24.
-//
-
 import SwiftUI
-
+struct Stratagem: Identifiable {
+    var id = UUID()
+    var title: String
+    var summary: String
+    var tip: String
+    var input: String
+}
 struct StratagemView: View {
-    let stratagems = stratagemList
+    let Stratagems = StrataBase
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(stratagems, id: \.self) { stratagems in
-                    NavigationLink(destination: Text(stratagems)){
-                        Image(systemName: "arrowkeys.fill")
-                        Text(stratagems)
-                    }.padding()
+            List(Stratagems) { stratagem in
+                NavigationLink(destination: StrataView(strataInfo: stratagem)) {
+                    Text("\(stratagem.title)")
                 }
-                .navigationTitle("Stratagems")
+                .padding()
             }
+            .navigationBarTitle("Stratagem Viewer")
         }
     }
 }
-
-#Preview {
-    SettingsView()
+struct StrataView: View {
+    var strataInfo: Stratagem
+    var body: some View {
+        VStack (spacing: 30) {
+            Text("\(strataInfo.title)")
+                .font(.largeTitle)
+            Text("\(strataInfo.summary)")
+                .font(.body)
+            Text("\(strataInfo.tip)")
+                .font(.headline)
+        }
+    }
+}
+struct StratagemView_preview: PreviewProvider {
+    static var previews: some View {
+        StratagemView()
+    }
 }
