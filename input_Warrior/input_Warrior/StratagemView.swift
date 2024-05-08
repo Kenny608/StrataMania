@@ -1,83 +1,64 @@
-//
-//  StratagemView.swift
-//  input_Warrior
-//
-//  Created by Kenny Luchau on 4/9/24.
-//
-
 import SwiftUI
+struct Stratagem: Identifiable {
+    var id = UUID()
+    var title: String
+    var summary: String
+    var tip: String
+    var input: String
+//    enum input{
+//        case up, down, left, right
+//    }
 
-class Stratagems: Identifiable {
-    let id = UUID()
-    var name: String
-    var classification: [Stratagems]?
-    init(name: String, classification: [Stratagems]? = nil) {
-        self.name = name
-        self.classification = classification
-    }
 }
 struct StratagemView: View {
-    var Animals: [Stratagems] = [
-        Stratagems(name: "Backpacks", classification: [
-            Stratagems(name: "Offensive", classification: [
-                Stratagems(name: "Guard Dog"),
-                Stratagems(name: "Guard Dog Rover"),
-            ]),
-            Stratagems(name: "Defensive", classification: [
-                Stratagems(name: "Shield Generator"),
-                Stratagems(name: "Balistic Shield"),
-                Stratagems(name: "Supply Pack"),
-                Stratagems(name: "Jump Pack"),
-            ]),
-        ]),
-        Stratagems(name: "Orbitals", classification: [
-            Stratagems(name: "Offensive", classification: [
-                Stratagems(name: "Precision Strike"),
-                Stratagems(name: "Airbust Strike"),
-                Stratagems(name: "120MM HE Barrage"),
-                Stratagems(name: "380MM HE Barrage"),
-                Stratagems(name: "Walking Barrage"),
-                Stratagems(name: "Lazer"),
-                Stratagems(name: "Railcannon Strike"),
-            ]),
-            Stratagems(name: "Utility", classification: [
-                Stratagems(name: "Gas Strike"),
-                Stratagems(name: "EMS Strike"),
-                Stratagems(name: "Smoke Strike"),
-            ]),
-        ]),
-        Stratagems(name: "Eagle", classification: [
-            Stratagems(name: "Offensive", classification: [
-                Stratagems(name: "Precision Strike"),
-                Stratagems(name: "Airbust Strike"),
-                Stratagems(name: "120MM HE Barrage"),
-                Stratagems(name: "380MM HE Barrage"),
-                Stratagems(name: "Walking Barrage"),
-                Stratagems(name: "Lazer"),
-                Stratagems(name: "Railcannon Strike"),
-            ]),
-            Stratagems(name: "Utility", classification: [
-                Stratagems(name: "Gas Strike"),
-                Stratagems(name: "EMS Strike"),
-                Stratagems(name: "Smoke Strike"),
-                Stratagems(name: "Jump Pack"),
-            ]),
-        ]),
-    ]
+    let Stratagems = StrataBase
+    
     var body: some View {
-        VStack{
-            Text("eee")
-            List {
-                OutlineGroup(Animals, id: \.id, children: \.classification) { creature in
-                    Text(creature.name)
+        NavigationView {
+            List(Stratagems) { stratagem in
+                NavigationLink(destination: StrataView(strataInfo: stratagem)) {
+                    MyListItem(title: "\(stratagem.title)", input: "\(stratagem.input)")
                 }
+                .padding()
             }
+            .navigationBarTitle("Stratagem Viewer")
+            .foregroundColor(.blue)
+           .scrollContentBackground(.hidden)
         }
     }
 }
 
-
-#Preview {
-    StratagemView()
+struct MyListItem: View {
+    var title: String
+    var input: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("\(title)")
+                .font(.headline)
+            Text("\(input)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+        }
+    }
 }
 
+struct StrataView: View {
+    var strataInfo: Stratagem
+    var body: some View {
+        VStack (alignment: .center, spacing: 25){
+            Text("\(strataInfo.title)")
+                .font(.largeTitle)
+            Text("\(strataInfo.summary)")
+                .font(.body)
+            Text("\(strataInfo.tip)")
+                .font(.headline)
+            Spacer()
+        }
+    }
+}
+struct StratagemView_preview: PreviewProvider {
+    static var previews: some View {
+        StratagemView()
+    }
+}
