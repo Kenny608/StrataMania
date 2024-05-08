@@ -12,6 +12,9 @@ struct SettingsView: View {
     
     var body: some View {
         VStack{
+            Text("Settings")
+                .font(.title)
+                .padding(.top, 20)
             Toggle("Dark Mode", isOn: $isDarkMode)
                 .padding(.bottom)
             Spacer()

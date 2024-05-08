@@ -5,9 +5,6 @@ struct Stratagem: Identifiable {
     var summary: String
     var tip: String
     var input: String
-//    enum input{
-//        case up, down, left, right
-//    }
 
 }
 struct StratagemView: View {
@@ -23,7 +20,7 @@ struct StratagemView: View {
             }
             .navigationBarTitle("Stratagem Viewer")
             .foregroundColor(.blue)
-           .scrollContentBackground(.hidden)
+            .listStyle(.plain)
         }
     }
 }
