@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var Darkmode = false
+    
     var body: some View {
         TabView {
             HomeView()
@@ -25,13 +27,13 @@ struct ContentView: View {
                     Image(systemName: "3.circle")
                     Text("InputWar")
                 }
-            SettingsView()
+            SettingsView(isDarkMode: $Darkmode)
                 .tabItem {
                     Image(systemName: "4.circle")
                     Text("Settings")
                 }
         }
-        .padding()
+        .environment(\.colorScheme, Darkmode ? .dark : .light)
     }
 }
 
