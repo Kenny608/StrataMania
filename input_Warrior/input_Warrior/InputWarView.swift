@@ -85,7 +85,7 @@ struct InputWarView: View {
                     Spacer()
                 }
                 
-//                Spacer()
+                Spacer()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
