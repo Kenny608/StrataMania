@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InputWarView: View {
+    let Stratagems = StrataBase
+    
     var body: some View {
         VStack {
             // Upper half of the screen
@@ -16,9 +18,15 @@ struct InputWarView: View {
                     .font(.title)
                 Spacer()
             }
-//            Center?
+            // Center?
             VStack{
-                Text("Some Centered text")
+                ForEach(Stratagems) { stratagem in
+                    VStack{
+                        // strataDisplay(stratacall: stratagem )
+                        Text("IM LOST IN THIS PART")
+                    }
+                }
+                
             }
             
             // Lower half of the screen
@@ -27,11 +35,16 @@ struct InputWarView: View {
                 
                 HStack {
                     Spacer()
+                    
                     // Up Arrow
                     VStack {
-                        Image(systemName: "arrow.up")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        Button{
+                            
+                        }label: {
+                            Image(systemName: "arrow.up")
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
                     }
                     .frame(width: 50, height: 50)
                     .background(Color.red)
@@ -42,11 +55,16 @@ struct InputWarView: View {
                 
                 HStack {
                     Spacer()
+                    
                     // Left Arrow
                     VStack {
-                        Image(systemName: "arrow.left")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        Button{
+                            
+                        }label: {
+                            Image(systemName: "arrow.left")
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
                     }
                     .frame(width: 50, height: 50)
                     .background(Color.blue)
@@ -54,14 +72,15 @@ struct InputWarView: View {
                     .alignmentGuide(.leading) { d in d[HorizontalAlignment.center] }
                     Spacer()
                     
-                    // Center space
-//                    Spacer()
-                    
                     // Right Arrow
                     VStack {
-                        Image(systemName: "arrow.right")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        Button{
+                            
+                        }label: {
+                            Image(systemName: "arrow.right")
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
                     }
                     .frame(width: 50, height: 50)
                     .background(Color.green)
@@ -74,9 +93,14 @@ struct InputWarView: View {
                     Spacer()
                     // Down Arrow
                     VStack {
-                        Image(systemName: "arrow.down")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        Button{
+                            
+                        }label: {
+                            Image(systemName: "arrow.down")
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
+                        
                     }
                     .frame(width: 50, height: 50)
                     .background(Color.yellow)
@@ -89,6 +113,18 @@ struct InputWarView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+struct strataDisplay: View {
+    let stratacall: Stratagem
+    var body: some View {
+        VStack(alignment: .center, spacing: 25){
+            Text("\(stratacall.title)")
+                .font(.largeTitle)
+            Text("\(stratacall.input)")
+                .font(.headline)
+        }
     }
 }
 
