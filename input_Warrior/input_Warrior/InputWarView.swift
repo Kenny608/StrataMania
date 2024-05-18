@@ -55,7 +55,7 @@ struct InputWarView: View {
                 HStack {
                     Spacer()
                     // Up Arrow
-                    ArrowButton(imageName: "arrow.up", buttonAction: {
+                    NumberButton(number: "1", buttonAction: {
                         uInput += "1"
                         updateCorrectness()
                     })
@@ -65,13 +65,13 @@ struct InputWarView: View {
                 HStack {
                     Spacer()
                     // Left Arrow
-                    ArrowButton(imageName: "arrow.left", buttonAction: {
+                    NumberButton(number: "3", buttonAction: {
                         uInput += "3"
                         updateCorrectness()
                     })
                     Spacer()
                     // Right Arrow
-                    ArrowButton(imageName: "arrow.right", buttonAction: {
+                    NumberButton(number: "4", buttonAction: {
                         uInput += "4"
                         updateCorrectness()
                     })
@@ -81,7 +81,7 @@ struct InputWarView: View {
                 HStack {
                     Spacer()
                     // Down Arrow
-                    ArrowButton(imageName: "arrow.down", buttonAction: {
+                    NumberButton(number: "2", buttonAction: {
                         uInput += "2"
                         updateCorrectness()
                     })
@@ -106,13 +106,13 @@ struct InputWarView: View {
     }
 }
 
-struct ArrowButton: View {
-    let imageName: String
+struct NumberButton: View {
+    let number: String
     let buttonAction: () -> Void
     
     var body: some View {
         Button(action: buttonAction) {
-            Image(systemName: imageName)
+            Text(number)
                 .font(.title)
                 .foregroundColor(.white)
         }
