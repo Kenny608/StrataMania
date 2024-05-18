@@ -9,24 +9,43 @@ import SwiftUI
 
 struct InputWarView: View {
     let Stratagems = StrataBase
+    @State var randomStrategem = StrataBase.randomElement()!
+    @State var uInput = ""
+    @State var correctInput = false
+    @State var correctinaerow = 0
     
     var body: some View {
         VStack {
             // Upper half of the screen
             VStack {
-                Text("Upper Half")
+                Text(" Stratagems in a row \(correctinaerow)")
                     .font(.title)
                 Spacer()
             }
+            
             // Center?
-            VStack{
-                ForEach(Stratagems) { stratagem in
-                    VStack{
-                        // strataDisplay(stratacall: stratagem )
-                        Text("IM LOST IN THIS PART")
-                    }
-                }
+            VStack {
+                strataDisplay(stratacall: randomStrategem)
                 
+                Button(action: {
+                    randomStrategem = StrataBase.randomElement()!
+                    uInput = ""
+                    correctInput = randomStrategem.input.hasPrefix(uInput)
+                    correctinaerow = 0
+                }) {
+                    Text("Clear Input")
+                }
+                .padding()
+                
+                Text("\(uInput)")
+                
+                if correctInput {
+                    Text("Yes")
+                        .foregroundColor(.green)
+                } else {
+                    Text("No")
+                        .foregroundColor(.red)
+                }
             }
             
             // Lower half of the screen
@@ -35,77 +54,37 @@ struct InputWarView: View {
                 
                 HStack {
                     Spacer()
-                    
                     // Up Arrow
-                    VStack {
-                        Button{
-                            
-                        }label: {
-                            Image(systemName: "arrow.up")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .frame(width: 50, height: 50)
-                    .background(Color.red)
-                    .cornerRadius(10)
-                    .alignmentGuide(.top) { d in d[VerticalAlignment.center] }
+                    ArrowButton(imageName: "arrow.up", buttonAction: {
+                        uInput += "1"
+                        updateCorrectness()
+                    })
                     Spacer()
                 }
                 
                 HStack {
                     Spacer()
-                    
                     // Left Arrow
-                    VStack {
-                        Button{
-                            
-                        }label: {
-                            Image(systemName: "arrow.left")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .frame(width: 50, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .alignmentGuide(.leading) { d in d[HorizontalAlignment.center] }
+                    ArrowButton(imageName: "arrow.left", buttonAction: {
+                        uInput += "3"
+                        updateCorrectness()
+                    })
                     Spacer()
-                    
                     // Right Arrow
-                    VStack {
-                        Button{
-                            
-                        }label: {
-                            Image(systemName: "arrow.right")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .frame(width: 50, height: 50)
-                    .background(Color.green)
-                    .cornerRadius(10)
-                    .alignmentGuide(.trailing) { d in d[HorizontalAlignment.center] }
+                    ArrowButton(imageName: "arrow.right", buttonAction: {
+                        uInput += "4"
+                        updateCorrectness()
+                    })
                     Spacer()
                 }
                 
                 HStack {
                     Spacer()
                     // Down Arrow
-                    VStack {
-                        Button{
-                            
-                        }label: {
-                            Image(systemName: "arrow.down")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
-                        
-                    }
-                    .frame(width: 50, height: 50)
-                    .background(Color.yellow)
-                    .cornerRadius(10)
-                    .alignmentGuide(.bottom) { d in d[VerticalAlignment.center] }
+                    ArrowButton(imageName: "arrow.down", buttonAction: {
+                        uInput += "2"
+                        updateCorrectness()
+                    })
                     Spacer()
                 }
                 
@@ -114,12 +93,40 @@ struct InputWarView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+    
+    func updateCorrectness() {
+        correctInput = randomStrategem.input.hasPrefix(uInput)
+        
+        if (randomStrategem.input == uInput)
+        {
+            randomStrategem = StrataBase.randomElement()!
+            uInput = ""
+            correctinaerow += 1
+        }
+    }
+}
+
+struct ArrowButton: View {
+    let imageName: String
+    let buttonAction: () -> Void
+    
+    var body: some View {
+        Button(action: buttonAction) {
+            Image(systemName: imageName)
+                .font(.title)
+                .foregroundColor(.white)
+        }
+        .frame(width: 50, height: 50)
+        .background(Color.yellow)
+        .cornerRadius(10)
+    }
 }
 
 struct strataDisplay: View {
     let stratacall: Stratagem
+    
     var body: some View {
-        VStack(alignment: .center, spacing: 25){
+        VStack(alignment: .center, spacing: 25) {
             Text("\(stratacall.title)")
                 .font(.largeTitle)
             Text("\(stratacall.input)")
