@@ -13,6 +13,7 @@ struct InputWarView: View {
     @State var uInput = ""
     @State var correctInput = false
     @State var correctinaerow = 0
+    @State var pFeedback = ""
     
     var body: some View {
         VStack {
@@ -20,6 +21,9 @@ struct InputWarView: View {
             VStack {
                 Text(" Stratagems in a row \(correctinaerow)")
                     .font(.title)
+                Spacer()
+                Text("\(pFeedback)")
+                    .font(.title2)
                 Spacer()
             }
             
@@ -32,19 +36,25 @@ struct InputWarView: View {
                     uInput = ""
                     correctInput = randomStrategem.input.hasPrefix(uInput)
                     correctinaerow = 0
+                    pFeedback = "You Got The Last One Wrong"
                 }) {
-                    Text("Clear Input")
+                    Text("Reset")
                 }
                 .padding()
-                
                 Text("\(uInput)")
+                    .font(.title2)
                 
-                if correctInput {
-                    Text("Yes")
-                        .foregroundColor(.green)
-                } else {
-                    Text("No")
-                        .foregroundColor(.red)
+                if (uInput != ""){
+                    if correctInput {
+                        Text("Correct")
+                            .foregroundColor(.green)
+                    } else {
+                        Text("Wrong")
+                            .foregroundColor(.red)
+                    }
+                }
+                else{
+                    
                 }
             }
             
@@ -97,11 +107,15 @@ struct InputWarView: View {
     func updateCorrectness() {
         correctInput = randomStrategem.input.hasPrefix(uInput)
         
+        if(pFeedback != ""){
+            pFeedback = ""
+        }
         if (randomStrategem.input == uInput)
         {
             randomStrategem = StrataBase.randomElement()!
             uInput = ""
             correctinaerow += 1
+            pFeedback = "You Got The Previous One Right!"
         }
     }
 }
@@ -130,7 +144,7 @@ struct strataDisplay: View {
             Text("\(stratacall.title)")
                 .font(.largeTitle)
             Text("\(stratacall.input)")
-                .font(.headline)
+                .font(.title)
         }
     }
 }
