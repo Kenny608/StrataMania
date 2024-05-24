@@ -1,12 +1,5 @@
 import SwiftUI
-struct Stratagem: Identifiable {
-    var id = UUID()
-    var title: String
-    var summary: String
-    var tip: String
-    var input: String
 
-}
 struct StratagemView: View {
     let Stratagems = StrataBase
     
